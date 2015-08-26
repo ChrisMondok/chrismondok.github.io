@@ -8,7 +8,7 @@ h1, header {
 	font-size: 2em;
 }
 
-a:link {
+a:link:not(.image) {
 	margin: -2px;
 	padding: 2px;
 	background-color: #FEFEFE;
@@ -16,6 +16,7 @@ a:link {
 	& + a:link {
 		margin-left: 1em;
 	}
+
 }
 
 article {
@@ -43,10 +44,18 @@ article {
 
 	header {
 		font-size: 1.5em;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: #BBB;
 		border-bottom: 2px solid #F79A42;
 
 	}
+}
+
+article#zolf {
+	.image-background("images/zolf/background.png");
+}
+
+article#ballin-spain {
+	.image-background("images/ballin-spain/background.png");
 }
 
 .responsive-columns {
@@ -61,4 +70,11 @@ p {
 	* + & {
 		margin-top: 1em;
 	}
+}
+
+.image-background(@url) {
+	background-image: url(@url);
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
