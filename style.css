@@ -1,0 +1,64 @@
+html, head {
+	font-family: 'Exo 2', sans-serif;
+}
+
+h1, header {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	font-size: 2em;
+}
+
+a:link {
+	margin: -2px;
+	padding: 2px;
+	background-color: #FEFEFE;
+
+	& + a:link {
+		margin-left: 1em;
+	}
+}
+
+article {
+	background-color: #EEE;
+	margin: 1em;
+	//box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+	padding: 1rem;
+	border-radius: 3px;
+
+	max-width: 8in;
+
+	> header, > footer {
+		margin-left: -1rem;
+		margin-right: -1rem;
+		padding: 1rem;
+
+		&:first-child {
+			margin-top: -1rem;
+		}
+
+		&:last-child {
+			margin-bottom: -1rem;
+		}
+	}
+
+	header {
+		font-size: 1.5em;
+		background-color: rgba(0, 0, 0, 0.2);
+		border-bottom: 2px solid #F79A42;
+
+	}
+}
+
+.responsive-columns {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+p {
+	margin: 0;
+
+	* + & {
+		margin-top: 1em;
+	}
+}
