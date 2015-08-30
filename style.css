@@ -4,8 +4,12 @@ html, head {
 
 h1, header {
 	font-family: 'Lato', sans-serif;
-	font-weight: 100;
-	font-size: 2em;
+	font-weight: 400;
+	font-size: 3em;
+}
+
+h1 {
+	text-align: center;
 }
 
 a:link:not(.image) {
@@ -26,7 +30,10 @@ article {
 	padding: 1rem;
 	border-radius: 3px;
 
-	max-width: 8in;
+	flex-basis: 8in;
+
+	flex-grow: 1;
+	flex-basis: 8in;
 
 	> header, > footer {
 		margin-left: -1rem;
@@ -70,10 +77,16 @@ article#ballin-spain {
 	.image-background("images/ballin-spain/background.png");
 }
 
-.responsive-columns {
+section {
+	margin: 1em;
+	box-shadow: 4px 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.columns {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 p {
