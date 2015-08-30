@@ -8,20 +8,22 @@
 
 		var viewer = createViewer();
 
+		var showing = false;
+
 		function show(url, e) {
-			viewer.style.backgroundImage = "url("+url+")";
+			//viewer.style.backgroundImage = "url("+url+")";
+			showing = true;
+			viewer.querySelector('img').src = url;
 			viewer.style.display = 'flex';
 			clickAnimation(e, 0);
 			setTimeout(function() {
-				clickAnimation(e, 200);
+				clickAnimation(e, '200%');
 			}, 15);
 		}
 
 		function hide(e) {
+			showing = false;
 			clickAnimation(e, 0);
-			setTimeout(function() {
-				viewer.style.display = 'none';
-			}, 500);
 		}
 
 		function hijackClick(el) {
@@ -34,7 +36,7 @@
 		}
 
 		function clickAnimation(mouseEvent, targetPercent) {
-			var rule = "circle(PCT% at Xpx Ypx)".replace('PCT', targetPercent).replace('X', mouseEvent.clientX).replace('Y', mouseEvent.clientY);
+			var rule = "circle(SIZE at Xpx Ypx)".replace('SIZE', targetPercent).replace('X', mouseEvent.clientX).replace('Y', mouseEvent.clientY);
 
 			if('clipPath' in viewer.style)
 				viewer.style.clipPath = rule;
@@ -52,6 +54,14 @@
 			document.body.appendChild(viewer);
 			viewer.addEventListener('click', hide);
 			viewer.style.display = 'none';
+			
+			var img = document.createElement('img');
+			viewer.appendChild(img);
+
+			viewer.addEventListener('transitionend', function(ae) {
+				if(!showing)
+					viewer.style.display = 'none';
+			});
 			return viewer;
 		}
 	}
