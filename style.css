@@ -54,6 +54,10 @@ article#zolf {
 	.image-background("images/zolf/background.png");
 }
 
+article#sports-medley {
+	.image-background("images/sports-medley/background.png");
+}
+
 article#ballin-spain {
 	.image-background("images/ballin-spain/background.png");
 }
