@@ -16,11 +16,12 @@ a:link:not(.image) {
 	margin: -2px;
 	padding: 2px;
 	background-color: #FEFEFE;
+}
 
-	& + a:link {
+footer {
+	a:link + a:link {
 		margin-left: 1em;
 	}
-
 }
 
 article {
@@ -75,6 +76,10 @@ article#tether {
 
 article#ballin-spain {
 	.image-background("images/ballin-spain/background.png");
+}
+
+article#rototheremin {
+	.image-background("images/rototheremin/background.png");
 }
 
 section {
