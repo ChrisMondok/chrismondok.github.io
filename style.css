@@ -58,6 +58,10 @@ article#sports-medley {
 	.image-background("images/sports-medley/background.png");
 }
 
+article#snowman-race {
+	.image-background("images/snowman-race/background.png");
+}
+
 article#ballin-spain {
 	.image-background("images/ballin-spain/background.png");
 }
