@@ -62,6 +62,10 @@ article#snowman-race {
 	.image-background("images/snowman-race/background.png");
 }
 
+article#tether {
+	.image-background("images/tether/background.png");
+}
+
 article#ballin-spain {
 	.image-background("images/ballin-spain/background.png");
 }
