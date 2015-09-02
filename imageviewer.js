@@ -17,7 +17,7 @@
 			viewer.style.display = 'flex';
 			clickAnimation(e, 0);
 			setTimeout(function() {
-				clickAnimation(e, '200%');
+				clickAnimation(e, '200');
 			}, 15);
 		}
 
@@ -36,7 +36,7 @@
 		}
 
 		function clickAnimation(mouseEvent, targetPercent) {
-			var rule = "circle(SIZE at Xpx Ypx)".replace('SIZE', targetPercent).replace('X', mouseEvent.clientX).replace('Y', mouseEvent.clientY);
+			var rule = "circle(PCT% at Xpx Ypx)".replace('PCT', targetPercent).replace('X', mouseEvent.clientX).replace('Y', mouseEvent.clientY);
 
 			if('clipPath' in viewer.style)
 				viewer.style.clipPath = rule;
