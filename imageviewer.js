@@ -9,34 +9,46 @@
 		var viewer = createViewer();
 
 		var showing = false;
+		var next = null, previous = null;
 
-		function show(url, e) {
-			//viewer.style.backgroundImage = "url("+url+")";
+		function show(link, e) {
 			showing = true;
-			viewer.querySelector('img').src = url;
+			viewer.querySelector('img').src = link.href;
 			viewer.style.display = 'flex';
 			clickAnimation(e, 0);
 			setTimeout(function() {
 				clickAnimation(e, '200');
 			}, 15);
+
+			if(link.previousElementSibling && link.previousElementSibling.className == 'image')
+				previous = link.previousElementSibling;
+			if(link.nextElementSibling && link.nextElementSibling.className == 'image')
+				next = link.nextElementSibling;
+
+			viewer.focus();
 		}
 
 		function hide(e) {
 			showing = false;
 			clickAnimation(e, 0);
+			previous = next = null;
 		}
 
-		function hijackClick(el) {
-			el.addEventListener('click', function(e) {
+		function hijackClick(link) {
+			link.addEventListener('click', function(e) {
 				if(e.which != 1)
 					return;
-				show(el.href, e);
+				show(link, e);
 				e.preventDefault();
 			});
 		}
 
 		function clickAnimation(mouseEvent, targetPercent) {
-			var rule = "circle(PCT% at Xpx Ypx)".replace('PCT', targetPercent).replace('X', mouseEvent.clientX).replace('Y', mouseEvent.clientY);
+			var x = mouseEvent ? mouseEvent.clientX : window.innerWidth/2;
+			var y = mouseEvent ? mouseEvent.clientY : window.innerHeight / 2;
+			var rule = "circle(PCT% at Xpx Ypx)".replace('PCT', targetPercent)
+				.replace('X', x)
+				.replace('Y', y);
 
 			if('clipPath' in viewer.style)
 				viewer.style.clipPath = rule;
@@ -62,7 +74,27 @@
 				if(!showing)
 					viewer.style.display = 'none';
 			});
+
+			viewer.tabIndex = 0;
+			viewer.addEventListener('keydown', handleImageViewerKey);
 			return viewer;
 		}
+
+		function handleImageViewerKey(keyEvent) {
+				switch(keyEvent.which) {
+					case 37:
+						if(previous)
+							show(previous);
+						break;
+					case 39:
+						if(next)
+							show(next);
+						break;
+					case 27:
+						hide();
+						break;
+					default: break; //sometimes jslint sucks
+				}
+			}
 	}
 })();
