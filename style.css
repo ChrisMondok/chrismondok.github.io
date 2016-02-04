@@ -58,6 +58,10 @@ article {
 	}
 }
 
+article#crowd-fiend {
+	.image-background("images/crowd-fiend/background.jpg");
+}
+
 article#zolf {
 	.image-background("images/zolf/background.png");
 }
