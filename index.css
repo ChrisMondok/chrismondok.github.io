@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Noticia+Text|Raleway:200');
+
+body {
+  background-color: white;
+  color: black;
+  margin: 0;
+  font-family: 'Noticia Text', serif;
+}
+
+header {
+  border-bottom: 1px solid black;
+}
+
+header ~ header {
+  margin-top: 8rem;
+}
+
+h1, article {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem 0;
+  font-size: 3rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  margin: 1rem 0;
+}
+
+section.links ul {
+  margin: 0;
+  padding: 0;
+}
+
+section.links li {
+  list-style-type: none;
+}
+
+article {
+  display: flex;
+}
+
+article div {
+  flex: 1;
+}
+
+article > img {
+  margin: 1rem 0;
+}
